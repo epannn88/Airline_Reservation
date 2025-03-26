@@ -24,6 +24,7 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
                     <img src="assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                   </div>
                 </div>
+                <!-- nama -->
                 <div class="flex-grow-1">
                   <span class="fw-semibold d-block"><?php echo $name; ?></span>
                   <small class="text-muted"><?php echo $role; ?></small>
