@@ -1,6 +1,6 @@
 <?php
 include (".includes/header.php");
-$title = "Tambah Penerbangan";
+$title = "Jakarta";
 // menyertakan file untuk menampilakn notifikasi (jika ada) 
 include '.includes/toast_notification.php';
 ?>
@@ -10,7 +10,8 @@ include '.includes/toast_notification.php';
     <div class="card mb-4">
       <h5 class="card-header">Tambah Penerbangan</h5>
       <div class="card-body demo-vertical-spacing demo-only-element">
-        
+
+<form method="POST" action="tambahPenerbangan_process.php" class="mb-4">
 <div class="mb-4">
   <!-- Kota Asal -->
   <div class="mb-3">
@@ -21,7 +22,9 @@ include '.includes/toast_notification.php';
      </span>
       <input 
         type="text" 
-        class="form-control border-0 py-3" 
+        class="form-control border-0 py-3"
+        id="kota_asal"
+        name="kota_asal" 
         placeholder="Lokasi keberangkatan"
         aria-label="Kota asal"
         aria-describedby="asalHelp"
@@ -47,6 +50,8 @@ include '.includes/toast_notification.php';
             <input 
                 type="text" 
                 class="form-control border-0 py-3" 
+                id="kota_tujuan"
+                name="kota_tujuan"
                 placeholder="Lokasi tujuan"
                 aria-label="Kota tujuan"
                 aria-describedby="tujuanHelp"
@@ -64,20 +69,20 @@ include '.includes/toast_notification.php';
 </div>
 
         <div class="mt-2 mb-3 ml-2">
-          <label for="largeSelect" class="form-label">Maskapai</label>
-            <select id="largeSelect" class="form-select form-select-lg">
+          <label for="maskapai" class="form-label">Maskapai</label>
+            <select id="maskapai" class="form-select form-select-lg" name="maskapai">
               <option>Large select</option>
               <option value="Citilink">Citilink</option>
-              <option value="Air_Asia">Air Asia</option>
-              <option value="Batik_Air">Batik Air</option>
-              <option value="Garuda_Indonesia">Garuda Indonesia</option>
-              <option value="Lion_Air">Lion Air</option>
-              <option value="Nam_Air">Nam Air</option>
-              <option value="Super_Air_Jet">Super Air Jet</option>
+              <option value="Air Asia">Air Asia</option>
+              <option value="Batik Air">Batik Air</option>
+              <option value="Garuda Indonesia">Garuda Indonesia</option>
+              <option value="Lion Air">Lion Air</option>
+              <option value="Nam Air">Nam Air</option>
+              <option value="Super Air Jet">Super Air Jet</option>
               <option value="Transnusa">Transnusa</option>
-              <option value="Pelita_Air">Pelita Air</option>
-              <option value="Sriwijaya_Air">Sriwijaya Air</option>
-              <option value="Wings_Air">Wings Air</option>
+              <option value="Pelita Air">Pelita Air</option>
+              <option value="Sriwijaya Air">Sriwijaya Air</option>
+              <option value="Wings Air">Wings Air</option>
             </select>
           </div>
 
@@ -91,6 +96,7 @@ include '.includes/toast_notification.php';
             class="form-control form-control-lg border-secondary-subtle w-100"
             type="datetime-local"
             id="jadwal"
+            name="jadwal"
             required
             aria-describedby="jadwalHelp"
         >
@@ -112,7 +118,9 @@ include '.includes/toast_notification.php';
         </span>
         <input 
             type="text" 
-            class="form-control border-0 py-3" 
+            class="form-control border-0 py-3"
+            id="harga" 
+            name="harga"
             placeholder="Masukkan harga"
             aria-label="Harga"
             inputmode="numeric"
@@ -130,7 +138,7 @@ include '.includes/toast_notification.php';
         <i class="bi bi-arrow-left me-2"></i>
         Kembali
     </a>
-    <button type="submit" class="btn btn-primary btn-lg">
+    <button type="submit" class="btn btn-primary btn-lg" name="sumbit_penerbangan">
         <i class="bi bi-send-check me-2"></i>
         Simpan Penerbangan
     </button>
@@ -139,6 +147,7 @@ include '.includes/toast_notification.php';
     </div>
   </div>
 </div>
+</form>
 <?php 
 include (".includes/footer.php");
 ?>
