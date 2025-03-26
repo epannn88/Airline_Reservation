@@ -60,4 +60,4 @@ navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
     </ul>
   </div>
 </nav>
-<!-- / Navbar -->
+<!-- / end Navbar -->
