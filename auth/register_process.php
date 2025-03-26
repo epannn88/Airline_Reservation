@@ -8,9 +8,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST["nama"];
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO penumpang (nama, email, password)
-    VALUES ('$nama','$email','$password')";
+    $sql = "INSERT INTO users (nama, email, password)
+    VALUES ('$nama','$email','$hashedPassword')";
     if ($conn->query($sql) === TRUE){
         $_SESSION['notification'] = [
             'type' => 'primary',
