@@ -32,23 +32,23 @@ include '.includes/toast_notification.php';
   <div class="col-md-6 col-xl-3 mt-3 ">
     <div class="card bg-success text-white mb-3">
       <div class="card-body">
-        <h5 class="card-title text-white">Penumpang & Cabin Class</h5>
+        <h5 class="card-title text-white">Masukkan jumlah penumpang</h5>
         <p class="card-text">Pilih jumlah penempang dan cabin class.</p>
       </div>
     </div>
     </div>
       <div class="col-md-6 col-xl-3 mt-3">
-        <div class="card bg-secondary text-white mb-3">
+        <div class="card bg-success text-white mb-3">
           <div class="card-body">
-            <h5 class="card-title text-white">Secondary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up.</p>
+            <h5 class="card-title text-white">setelah selesai, klik simpan</h5>
+            <p class="card-text">Simpan disini digunakan untuk menyimpan data penumpang yang telah di input</p>
           </div>
         </div>
         </div>
           <div class="col-md-6 col-xl-3 mt-3 ">
-            <div class="card bg-secondary text-white mb-3">
+            <div class="card bg-success text-white mb-3">
               <div class="card-body">
-                <h5 class="card-title text-white">Success card title</h5>
+                <h5 class="card-title text-white">bayar</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up.</p>
               </div>
             </div>
@@ -143,7 +143,7 @@ include '.includes/toast_notification.php';
             <a href="javascript:history.back()" class="btn btn-outline-secondary btn-lg w-100">Back</a>
           </div>
         <div class="col-md-3 col-sm-6">
-          <a href="info_penumpang.php" id="nextBtn"class="btn btn-outline-primary btn-lg w-100">Next</a>
+          <a href="https://app.sandbox.midtrans.com/payment-links/1744521015838" id="nextBtn"class="btn btn-outline-primary btn-lg w-100">Bayar</a>
         </div>
       </div>
     </div>
