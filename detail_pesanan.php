@@ -24,7 +24,22 @@ include '.includes/toast_notification.php';
                         </tr>
                       </thead>
                       <tbody class="table-border-bottom-0">
-                      
+                      <?php 
+                        $index = 1;
+
+                        $query = $conn->query("SELECT * FROM penumpang");
+                        while ($penerbangan = $query->fetch_assoc()) {
+                        ?>
+                        <tr>
+                          <td><?= $index++; ?></td>
+                          <td><?= $penerbangan['cabin_class']; ?></td>
+                          <td><?= $penerbangan['nama_penumpang']; ?></td>
+                          <td><?= $penerbangan['umur_penumpang']; ?></td>
+                          <td><?= $penerbangan['email_penumpang']; ?></td>
+                          <td><?= $penerbangan['nomor_kursi']; ?></td>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
                 
