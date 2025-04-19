@@ -122,6 +122,9 @@ include '.includes/toast_notification.php';
                      placeholder="Contoh: A12">
             </div>
             <div class="row justify-content-center my-4 g-3"> 
+            <div class="col-md-3 col-sm-6">
+              <button type="submit" class="btn btn-outline-success mb-3" >simpan</button>
+              </div>
               <div class="col-md-3 col-sm-6">
               <button type="button" class="btn btn-outline-success mb-3" onclick="copyForm()">Tambah</button>
               </div>
