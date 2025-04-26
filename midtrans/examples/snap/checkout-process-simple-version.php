@@ -8,8 +8,8 @@ namespace Midtrans;
 require_once dirname(__FILE__) . '/../../Midtrans.php';
 // Set Your server key
 // can find in Merchant Portal -> Settings -> Access keys
-Config::$serverKey = '';
-Config::$clientKey = '';
+Config::$serverKey = '(masukan serverkey)';
+Config::$clientKey = '(masukan clientkey)';
 
 // non-relevant function only used for demo/example purpose
 printExampleWarningMessage();
