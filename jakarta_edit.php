@@ -4,9 +4,9 @@ include("config.php");
 
 include(".includes/header.php");
 
-$id_penerbangan = $_GET['id_penerbangan'];
+$penerbangan_id = $_GET['penerbangan_id'];
 
-    $query = $conn->query("SELECT * FROM penerbangan WHERE id_penerbangan ='$id_penerbangan'");
+    $query = $conn->query("SELECT * FROM penerbangan WHERE penerbangan_id ='$penerbangan_id'");
     // 1 disini salah karena nama nya nama id nya harusnya $event_id
     $penerbang = $query->fetch_assoc();
 
@@ -19,7 +19,7 @@ $id_penerbangan = $_GET['id_penerbangan'];
       <div class="card-body demo-vertical-spacing demo-only-element">
 
 <form method="POST" action="jakarta_process.php" class="mb-4">
-<input type="hidden" name="id_penerbangan" value="<?php echo $penerbang['id_penerbangan']; ?>">
+<input type="hidden" name="penerbangan_id" value="<?php echo $penerbang['penerbangan_id']; ?>">
 <table>
 <div class="mb-4">
   <!-- Kota Asal -->
@@ -118,28 +118,29 @@ $id_penerbangan = $_GET['id_penerbangan'];
     </small>
 </div>
 
-        <div class="mb-4">
-    <div class="input-group input-group-merge border border-secondary-subtle rounded-3">
-        <span class="input-group-text bg-light fw-semibold border-0 py-3">
-            <i class="bi bi-currency-dollar me-2"></i>
-            Harga
-        </span>
-        <input 
-            type="text" 
-            class="form-control border-0 py-3"
-            id="harga" 
-            name="harga"
-            placeholder="Masukkan harga"
-            aria-label="Harga"
-            inputmode="numeric"
-            pattern="[0-9.,]*"
-            value="<?php echo $penerbang['harga']; ?>" required>
-        >
-    </div>
+<div class="mb-4">
+    <div class="mt-2 mb-3 ml-2">
+          <label for="harga" class="form-label">Harga</label>
+            <select id="harga" class="form-select form-select-lg" name="harga">
+              <option>Large select</option>
+              <option value="900000">Citilink</option>
+              <option value="1200000">Air Asia</option>
+              <option value="1350000">Batik Air</option>
+              <option value="1150000">Garuda Indonesia</option>
+              <option value="1250000">Lion Air</option>
+              <option value="950000">Nam Air</option>
+              <option value="1300000">Super Air Jet</option>
+              <option value="1299000">Transnusa</option>
+              <option value="999000">Pelita Air</option>
+              <option value="1000000">Sriwijaya Air</option>
+              <option value="1100000">Wings Air</option>
+            </select>
+        </div>        
     <small class="form-text text-muted mt-2">
         <i class="bi bi-info-circle me-1"></i>
-        Masukkan angka tanpa simbol mata uang (contoh: 250000)
+        Pilih yang sesuai dengan nama maskapai (contoh: Citilink = terdapat harga yg sudah di cantumkan)
     </small>
+    </div>
 </div>
 </table>
 <!-- Tambahkan di dalam card-body, setelah elemen form terakhir -->
