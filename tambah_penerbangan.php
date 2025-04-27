@@ -110,26 +110,26 @@ include '.includes/toast_notification.php';
     </small>
 </div>
 
-        <div class="mb-4">
-    <div class="input-group input-group-merge border border-secondary-subtle rounded-3">
-        <span class="input-group-text bg-light fw-semibold border-0 py-3">
-            <i class="bi bi-currency-dollar me-2"></i>
-            Harga
-        </span>
-        <input 
-            type="text" 
-            class="form-control border-0 py-3"
-            id="harga" 
-            name="harga"
-            placeholder="Masukkan harga"
-            aria-label="Harga"
-            inputmode="numeric"
-            pattern="[0-9.,]*"
-        >
-    </div>
+        <div class="mt-2 mb-3 ml-2">
+          <label for="harga" class="form-label">Harga</label>
+            <select id="harga" class="form-select form-select-lg" name="harga">
+              <option>Large select</option>
+              <option value="900000">Citilink</option>
+              <option value="1200000">Air Asia</option>
+              <option value="1350000">Batik Air</option>
+              <option value="1150000">Garuda Indonesia</option>
+              <option value="1250000">Lion Air</option>
+              <option value="950000">Nam Air</option>
+              <option value="1300000">Super Air Jet</option>
+              <option value="1299000">Transnusa</option>
+              <option value="999000">Pelita Air</option>
+              <option value="1000000">Sriwijaya Air</option>
+              <option value="1100000">Wings Air</option>
+            </select>
+        </div>        
     <small class="form-text text-muted mt-2">
         <i class="bi bi-info-circle me-1"></i>
-        Masukkan angka tanpa simbol mata uang (contoh: 250000)
+        Pilih yang sesuai dengan nama maskapai (contoh: Citilink = terdapat harga yg sudah di cantumkan)
     </small>
 </div>
 <!-- Tambahkan di dalam card-body, setelah elemen form terakhir -->
