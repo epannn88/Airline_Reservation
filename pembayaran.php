@@ -38,7 +38,7 @@ include '.includes/toast_notification.php';
 
 <div class="container">
   <div class="col-md-10 mx-auto mt-3 mb-5">
-    <form action="proses_penumpang.php" method="POST">
+    <form action="pembayaran_process.php" method="POST">
     
       <div class="card mb-4">
         <div class="card-header text-white">
@@ -52,9 +52,10 @@ include '.includes/toast_notification.php';
               <label class="form-label">Nama Lengkap</label>
               <input type="text" 
                      class="form-control" 
-                     name="nama_penumpang[]" 
+                     name="nama" 
                      required
                      placeholder="Contoh: John Doe">
+                     
             </div>
 
             <!-- Email -->
@@ -62,10 +63,29 @@ include '.includes/toast_notification.php';
               <label class="form-label">Email</label>
               <input type="email" 
                      class="form-control" 
-                     name="email_penumpang[]" 
+                     name="email" 
                      required
                      placeholder="Contoh: johndoe@example.com">
             </div>
+
+            <div class="mt-2 mb-3 ml-2">
+          <label for="biaya" class="form-label">Biaya</label>
+            <select id="biaya" class="form-select form-select-lg" name="biaya">
+              <option>Large select</option>
+              <option value="900000">Citilink</option>
+              <option value="1200000">Air Asia</option>
+              <option value="1350000">Batik Air</option>
+              <option value="1150000">Garuda Indonesia</option>
+              <option value="1250000">Lion Air</option>
+              <option value="950000">Nam Air</option>
+              <option value="1300000">Super Air Jet</option>
+              <option value="1299000">Transnusa</option>
+              <option value="999000">Pelita Air</option>
+              <option value="1000000">Sriwijaya Air</option>
+              <option value="1100000">Wings Air</option>
+            </select>
+          </div>
+
           </div>
         </div>
       </div>
@@ -75,8 +95,8 @@ include '.includes/toast_notification.php';
         <div class="col-md-3 col-sm-6">
           <button type="button" onclick="history.back()" class="btn btn-outline-secondary btn-lg w-100">Back</button>
         </div>
-        <div class="col-md-3 col-sm-6" id="pembayaran">
-          <a href="https://app.sandbox.midtrans.com/payment-links/1743052090367" class="btn btn-outline-primary btn-lg w-100">Bayar</a>
+        <div class="col-md-3 col-sm-6" type="submit">
+        <button class="btn btn-outline-primary btn-lg w-100">Bayar</button>
         </div>
       </div>
     </form>
