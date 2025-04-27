@@ -11,6 +11,7 @@ include '.includes/toast_notification.php';
   function copyForm() {
     $("#form-asli")
     .clone()
+    .removeAttr("id")
     .appendTo($("#form-dinamis"))
   }
  // Fungsi untuk menghapus form clone
@@ -32,23 +33,23 @@ include '.includes/toast_notification.php';
   <div class="col-md-6 col-xl-3 mt-3 ">
     <div class="card bg-success text-white mb-3">
       <div class="card-body">
-        <h5 class="card-title text-white">Masukkan jumlah penumpang</h5>
+        <h5 class="card-title text-white">Penumpang & Cabin Class</h5>
         <p class="card-text">Pilih jumlah penempang dan cabin class.</p>
       </div>
     </div>
     </div>
       <div class="col-md-6 col-xl-3 mt-3">
-        <div class="card bg-success text-white mb-3">
+        <div class="card bg-secondary text-white mb-3">
           <div class="card-body">
-            <h5 class="card-title text-white">setelah selesai, klik simpan</h5>
-            <p class="card-text">Simpan disini digunakan untuk menyimpan data penumpang yang telah di input</p>
+            <h5 class="card-title text-white">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up.</p>
           </div>
         </div>
         </div>
           <div class="col-md-6 col-xl-3 mt-3 ">
-            <div class="card bg-success text-white mb-3">
+            <div class="card bg-secondary text-white mb-3">
               <div class="card-body">
-                <h5 class="card-title text-white">bayar</h5>
+                <h5 class="card-title text-white">Success card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up.</p>
               </div>
             </div>
@@ -56,12 +57,13 @@ include '.includes/toast_notification.php';
         </div>
 <!-- form pengisian -->
 <div class="container">
+<form action="penumpang_process.php" method="POST">
   <div class="col-md-8 mx-auto mt-3 mb-5">
     <div class="card mb-4">
     <div class="mt-2 mb-3 ml-2 mx-2">
-          <label for="largeSelect" class="form-label fs-4 mx-2">Cabin Class</label>
-            <select id="largeSelect" class="form-select form-select-lg">
-              <option>Plese Select</option>
+          <label for="cabin_class" class="form-label fs-4 mx-2">Cabin Class</label>
+            <select id="cabin_class" class="form-select form-select-lg" name="cabin_class">
+              <option>Please Select</option>
               <option>Economy</option>
               <option>Premium Economy</option>
               <option>business Class</option>
@@ -70,7 +72,6 @@ include '.includes/toast_notification.php';
           </div>
         <!-- form pengisian -->
   <div id="form-asli">
-    <form action="proses_penumpang.php" method="POST">
       <div class="card mb-4 form-container">
         <div class="card-header text-white">
           <h2>Form Pengisian</h2>
@@ -116,13 +117,13 @@ include '.includes/toast_notification.php';
               <label class="form-label">Nomor Kursi</label>
               <input type="text" 
                      class="form-control" 
-                     name="kursi_penumpang[]" 
+                     name="nomor_kursi[]" 
                      required
                      pattern="[A-Za-z0-9]+"
                      placeholder="Contoh: A12">
             </div>
             <div class="row justify-content-center my-4 g-3"> 
-            <div class="col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6">
               <button type="submit" class="btn btn-outline-success mb-3" >simpan</button>
               </div>
               <div class="col-md-3 col-sm-6">
@@ -136,17 +137,17 @@ include '.includes/toast_notification.php';
           </div>
         </div>
       </div>
+    </div>
+    <div id="form-dinamis">
     </form>
-  </div>
-  <div id="form-dinamis">
-
+ 
   </div>
         <div class="row justify-content-center my-4 g-3"> 
           <div class="col-md-3 col-sm-6">
             <a href="javascript:history.back()" class="btn btn-outline-secondary btn-lg w-100">Back</a>
           </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="https://app.sandbox.midtrans.com/payment-links/1744521015838" id="nextBtn"class="btn btn-outline-primary btn-lg w-100">Bayar</a>
+          <div class="col-md-3 col-sm-6">
+          <a href="pembayaran.php" id="nextBtn"class="btn btn-outline-primary btn-lg w-100">Bayar</a>
         </div>
       </div>
     </div>
