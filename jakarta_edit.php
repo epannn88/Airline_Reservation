@@ -119,28 +119,25 @@ $penerbangan_id = $_GET['penerbangan_id'];
 </div>
 
 <div class="mb-4">
-    <div class="mt-2 mb-3 ml-2">
-          <label for="harga" class="form-label">Harga</label>
-            <select id="harga" class="form-select form-select-lg" name="harga">
-              <option>Large select</option>
-              <option value="900000">Citilink</option>
-              <option value="1200000">Air Asia</option>
-              <option value="1350000">Batik Air</option>
-              <option value="1150000">Garuda Indonesia</option>
-              <option value="1250000">Lion Air</option>
-              <option value="950000">Nam Air</option>
-              <option value="1300000">Super Air Jet</option>
-              <option value="1299000">Transnusa</option>
-              <option value="999000">Pelita Air</option>
-              <option value="1000000">Sriwijaya Air</option>
-              <option value="1100000">Wings Air</option>
-            </select>
-        </div>        
-    <small class="form-text text-muted mt-2">
-        <i class="bi bi-info-circle me-1"></i>
-        Pilih yang sesuai dengan nama maskapai (contoh: Citilink = terdapat harga yg sudah di cantumkan)
-    </small>
+    <label for="harga" class="form-label fw-semibold mb-2">
+        <i class="bi bi-calendar2-date me-2"></i>
+        Harga
+    </label>
+    <div class="position-relative">
+        <input 
+            class="form-control form-control-lg border-secondary-subtle w-100"
+            type="text"
+            id="harga"
+            name="harga"
+            required
+            aria-describedby="hargaHelp"
+        >
+        
     </div>
+    <small id="harga" class="form-text text-muted mt-2">
+        <i class="bi bi-info-circle me-1"></i>
+        buat harga yang ingin dibayarkan (contoh: 2000000)
+    </small>
 </div>
 </table>
 <!-- Tambahkan di dalam card-body, setelah elemen form terakhir -->
