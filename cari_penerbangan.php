@@ -14,7 +14,7 @@ include '.includes/toast_notification.php';
                     <div class="card-body">
                       <h5 class="card-title">Jakarta</h5>
                         <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                        Ibu kota Indonesia yang dinamis dengan paduan gedung pencakar langit modern
                         </p>
                       <a href="jakarta.php" class="btn btn-outline-primary">Lihat</a>
                     </div>
@@ -26,7 +26,7 @@ include '.includes/toast_notification.php';
                     <div class="card-body">
                       <h5 class="card-title">Batam</h5>
                         <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                        Pulau strategis di Selat Malaka dengan keindahan yang laut menakjubkan. 
                         </p>
                       <a href="javascript:void(0)" class="btn btn-outline-primary">Lihat</a>
                     </div>
@@ -38,7 +38,7 @@ include '.includes/toast_notification.php';
                     <div class="card-body">
                       <h5 class="card-title">Bali</h5>
                         <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                        Pantai eksotis, sawah terasering Ubud, pura megah, dan kehidupan malam semarak di Seminyak.
                         </p>
                       <a href="javascript:void(0)" class="btn btn-outline-primary">Lihat</a>
                     </div>
@@ -50,7 +50,7 @@ include '.includes/toast_notification.php';
                     <div class="card-body">
                       <h5 class="card-title">Padang</h5>
                         <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                        Rumah gadang, rendang autentik, dan wisata bahari di Kepulauan Mentawai.
                         </p>
                       <a href="javascript:void(0)" class="btn btn-outline-primary">Lihat</a>
                     </div>
