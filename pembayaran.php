@@ -68,23 +68,16 @@ include '.includes/toast_notification.php';
                      placeholder="Contoh: johndoe@example.com">
             </div>
 
-            <div class="mt-2 mb-3 ml-2">
-          <label for="biaya" class="form-label">Biaya</label>
-            <select id="biaya" class="form-select form-select-lg" name="biaya">
-              <option>Large select</option>
-              <option value="900000">Citilink</option>
-              <option value="1200000">Air Asia</option>
-              <option value="1350000">Batik Air</option>
-              <option value="1150000">Garuda Indonesia</option>
-              <option value="1250000">Lion Air</option>
-              <option value="950000">Nam Air</option>
-              <option value="1300000">Super Air Jet</option>
-              <option value="1299000">Transnusa</option>
-              <option value="999000">Pelita Air</option>
-              <option value="1000000">Sriwijaya Air</option>
-              <option value="1100000">Wings Air</option>
-            </select>
-          </div>
+            <!-- biaya -->
+            <div class="col-md-6">
+              <label class="form-label">Biaya</label>
+              <input type="text" 
+                     class="form-control" 
+                     name="biaya" 
+                     required
+                     placeholder="Contoh: 1000000">
+                     
+            </div>
 
           </div>
         </div>
