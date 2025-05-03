@@ -127,6 +127,7 @@
               <p class="mb-4">Make your app management easy and fun!</p>
 
               <form id="formAuthentication" class="mb-3" action="register_process.php" method="POST">
+              <!-- Jika semua form telah di isi maka selanjutnya sata yang telah di input akan diproses di register_process.php -->
                 <div class="mb-3">
                   <label for="nama" class="form-label">Name</label>
                   <input
@@ -135,6 +136,7 @@
                     name="nama"
                     placeholder="Enter your name"
                     autofocus
+                
                   />
                 </div>
                 <div class="mb-3">
@@ -170,17 +172,6 @@
           <!-- Register Card -->
         </div>
       </div>
-    </div>
-
-    <!-- / Content -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
     </div>
 
     <!-- Core JS -->
