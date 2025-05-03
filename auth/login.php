@@ -127,6 +127,7 @@
               <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
               <form id="formAuthentication" class="mb-3" action="login_auth.php" method="POST">
+              <!-- Setelah user selesai melakukan input data, data yang di input akan langsung diproses di login_auth.php denhgan menggunakn method post -->
                 <div class="mb-3">
                   <label for="email" class="form-label">Email or Username</label>
                   <input
@@ -161,6 +162,7 @@
               <p class="text-center">
                 <span>New on our platform?</span>
                 <a href="register.php">
+                  <!-- link menuju halaman register -->
                   <span>Create an account</span>
                 </a>
               </p>
@@ -173,15 +175,6 @@
 
 
     <!-- / Content -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
