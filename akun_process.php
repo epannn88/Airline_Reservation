@@ -1,14 +1,10 @@
 <?php
 include 'config.php';
-// koneksi ke databse
 session_start();
-// memulai sesi
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
-    // memastikan apakah user telah menekan tombol edit
     $id = $_POST['id'];
-    $imageDir = "assets/img/avatars";
-    // tempat dimana foto disimpan
+    $imageDir = "assets/img/";
 
     if (!empty($_FILES["image"]["name"])) {
         $imageName = $_FILES["image"]["name"];
@@ -40,17 +36,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
         // notifikasi berhasil
         $_SESSION['notification'] = [
             'type' => 'primary',
-            'message' => 'Postingan berhasil di perbarui.'
+            'message' => 'Profil berhasil di perbarui.'
         ];
     } else {
         // notifikasi gagal
         $_SESSION['notification'] = [
             'type' => 'danger',
-            'message' => 'Gagal memperbarui postingan.'
+            'message' => 'Gagal memperbarui profil.'
         ];
     }
 
-    // arahkan kehalaman dashboard
+    // arahkan kehalaman akun
     header('Location: akun.php');
     exit();
 }
