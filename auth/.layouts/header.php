@@ -1,10 +1,10 @@
 <?php
 session_start();
-// ambil notifikasi jika ada, kemudian hapus dari sesi
+// Ambil notifikasi jika ada, kemudian hapus dari sesi
 $notification = $_SESSION['notification'] ?? null;
 if ($notification) {
   unset($_SESSION['notification']);
-}
+} 
 
 if (isset($_SESSION["nama"]) || isset($_SESSION["user"])) {
   $_SESSION['notification'] = [
