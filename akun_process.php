@@ -1,10 +1,14 @@
 <?php
 include 'config.php';
+// koneksi ke databse
 session_start();
+// memulai sesi
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit'])) {
+    // memastikan apakah user telah menekan tombol edit
     $id = $_POST['id'];
-    $imageDir = "assets/img/";
+    $imageDir = "assets/img/avatars";
+    // tempat dimana foto disimpan
 
     if (!empty($_FILES["image"]["name"])) {
         $imageName = $_FILES["image"]["name"];

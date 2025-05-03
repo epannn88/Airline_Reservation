@@ -1,15 +1,18 @@
 <?php
+// include header agar header dapat ditampilkan
 include (".includes/header.php");
-$title = "Akun";
+$title = "Akun"; // judul halaman
 // menyertakan file untuk menampilakn notifikasi (jika ada) 
-include '.includes/toast_notification.php';
+include '.includes/toast_notification.php'; // untuk menampilkan notifikasi
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-
+// Membuat "kode rahasia" untuk keamanan (seperti kunci anti-pencurian)
 require "config.php";
+// untuk mendapatkan koneksi ke database
 
 $_SESSION["id"] = 1;
 $_sessionId = $_SESSION["id"];
 $img = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tb_user WHERE id = $_sessionId"));
+// Ambil data pengguna dari database (foto, nama, dll.) berdasarkan ID-nya.
 ?>
 
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -33,6 +36,7 @@ $img = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tb_user WHERE id = 
             $image = $img["image"];
             ?>
             <img src=<?php echo $image; ?> width= 125 height= 125 >
+            <!-- menampilkan foto profil anda saat ini -->
             <div class="round">
               <input type="hidden" name="id" value="<?php echo $id; ?>">
               <input type="hidden" name="name" value="<?php echo $name; ?>">
@@ -77,33 +81,6 @@ $img = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM tb_user WHERE id = 
                               placeholder="john@example.com"
                               value="<?php echo $email; ?>"
                             />
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label class="form-label" for="country">Country</label>
-                            <select id="country" class="select2 form-select">
-                              <option value="">Select</option>
-                              <option value="Indonesia">Indonesia</option>
-                              <option value="English">English</option>
-                              <option value="Malaysia">Malaysia</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="language" class="form-label">Language</label>
-                            <select id="language" class="select2 form-select">
-                              <option value="">Select Language</option>
-                              <option value="en">English</option>
-                              <option value="de">Indonesia</option>
-                              <option value="pt">Malaysia</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="currency" class="form-label">Currency</label>
-                            <select id="currency" class="select2 form-select">
-                              <option value="">Select Currency</option>
-                              <option value="idr">IDR</option>
-                              <option value="usd">USD</option>
-                              <option value="myr">MYR</option>
-                            </select>
                         </div>
                         </div>
                         <div class="mt-2 mb-3">
