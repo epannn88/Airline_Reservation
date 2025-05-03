@@ -65,13 +65,6 @@ include '.includes/toast_notification.php';
  <div class="card mx-4 mt-4">
                 <div class="card-header">
                   <div class="table-responsive text-nowrap">
-                  <select id="filterAsal" class="form-select me-2" style="width: 150px;">
-                    <option value="">Filter Berdasarkan Asal</option>
-                    <option value="">jakarta</option>
-                    <option value="">batam</option>
-                    <option value="">dan lain</option>
-                    <!-- option ini digunakan untuk memfilter penerbangan -->
-                </select>
                     <table id="testdatatable" class="table table-hover">
                       <thead>
                         <tr>
@@ -106,10 +99,11 @@ include '.includes/toast_notification.php';
                           <td><?= $penerbangan['jam_penerbangan']; ?></td>
                           <td><?= $penerbangan['harga']; ?></td>
                           <!--menampilkan kota_asal, kota_tujuan, maskapai, jam_penerbangan, harga -->
-                          <td><a href="add_penumpang.php" class="btn rounded-pill btn-outline-success">lanjutkan</td>
+                          <td><a href="add_penumpang.php" class="btn rounded-pill btn-outline-success">Pesan!</td>
 
                           <td>
                             <a href="jakarta_edit.php?penerbangan_id=<?php echo $penerbangan['penerbangan_id'] ?>" class="btn rounded-pill btn-outline-success">edit </a>
+                            <!-- Tombol yang mengarah ke edit tabel -->
                             <a onclick="return confirm('Anda yakin ingin menghapus data?')" 
                             href="jakarta_process.php?penerbangan_id=<?php echo $penerbangan['penerbangan_id'] ?>" class="btn rounded-pill btn-outline-success">hapus</a>
                             <!-- Ketika tombol hapus di tekan maka akan muncul pesan 'Anda yakin ingin menghapus data?'
