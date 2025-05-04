@@ -7,9 +7,62 @@ include '.includes/toast_notification.php';
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 ?>
 
+
 <head>
+    <!-- ... (bagian head dan style tetap sama) ... -->
 <style>
-/* ... (style yang sudah ada tetap dipertahankan) ... */
+.add-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.add-button:hover {
+  width: 150px;
+  border-radius: 25px;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.add-button::before {
+  content: '+';
+  font-size: 24px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+.add-button:hover::before {
+  left: 20px;
+  transform: translateX(0);
+  color: white;
+}
+
+.add-button span {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  margin-left: 30px;
+
+}
+
+.add-button:hover span {
+  opacity: 1;
+  transition-delay: 0.1s;
+  color: white;
+}
 </style>
 </head>
 
@@ -41,10 +94,10 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
                 <tbody class="table-border-bottom-0">
                     <?php 
                     $index = 1;
-                    // Query dengan pencarian
-                    $sql = "SELECT * FROM penerbangan";
+                    // Query dengan pencarian dan filter status_tampil
+                    $sql = "SELECT * FROM penerbangan WHERE status_tampil = TRUE";
                     if (!empty($search)) {
-                        $sql .= " WHERE kota_tujuan LIKE '%" . $conn->real_escape_string($search) . "%'";
+                        $sql .= " AND kota_tujuan LIKE '%" . $conn->real_escape_string($search) . "%'";
                     }
                     $sql .= " ORDER BY kota_tujuan";
                     
@@ -60,13 +113,10 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
                         <td><?= htmlspecialchars($penerbangan['maskapai']); ?></td>
                         <td><?= htmlspecialchars($penerbangan['jam_penerbangan']); ?></td>
                         <td><?= htmlspecialchars($penerbangan['harga']); ?></td>
-                        <td><a href="add_penumpang.php?penerbangan_id=
-                        <?= $penerbangan['penerbangan_id'] ?>
-                        &asal=<?= urlencode($penerbangan['kota_asal']) ?>
-                        &tujuan=<?= urlencode($penerbangan['kota_tujuan']) ?>
-                        &maskapai=<?= urlencode($penerbangan['maskapai']) ?>&
-                        jadwal=<?= urlencode($penerbangan['jam_penerbangan']) ?>&harga=<?= urlencode($penerbangan['harga']) ?>" 
-       class="btn rounded-pill btn-outline-success">Pesan!</a></td>
+                        <td>
+                            <a href="jakarta_hilang.php?penerbangan_id=<?= $penerbangan['penerbangan_id'] ?>" 
+                               class="btn rounded-pill btn-outline-success">Pesan!</a>
+                        </td>
                         <td>
                             <a href="jakarta_edit.php?penerbangan_id=<?= $penerbangan['penerbangan_id'] ?>" 
                                class="btn rounded-pill btn-outline-success">edit</a>
@@ -91,11 +141,4 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
         </div>
     </div>
 </div>
-
-<!-- Optional: JavaScript untuk live search (jika ingin tanpa reload halaman) -->
-<script>
-document.getElementById('searchInput').addEventListener('input', function() {
-    // Jika ingin implementasi live search dengan AJAX, bisa ditambahkan di sini
-});
-</script>
 </body>
