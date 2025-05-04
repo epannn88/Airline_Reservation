@@ -27,26 +27,15 @@ include '.includes/toast_notification.php';
                       </thead>
                       <tbody class="table-border-bottom-0">
                       <?php 
-                        $index = 1;
-
-                        $query = $conn->query("SELECT * FROM penerbangan");
-                        while ($penerbangan = $query->fetch_assoc()) {
-                        ?>
-                        <tr>
-                          <td><?= $index++; ?></td>
-                          <td><?= $penerbangan['kota_asal']; ?></td>
-                          <td><?= $penerbangan['kota_tujuan']; ?></td>
-                          <td><?= $penerbangan['maskapai']; ?></td>
-                          <td><?= $penerbangan['jam_penerbangan']; ?></td>
-                          <td><?= $penerbangan['harga']; ?></td>
-                          <td><a class="btn rounded-pill btn-outline-success">tampilkan status pembayaran midtrans</td>
-
-                          <td>
-                            <a class="btn rounded-pill btn-outline-success"> detail</a>
-                          </td>
-                        <?php
-                        }
-                        ?>
+                      // Ambil data dari URL
+$penerbangan_id = isset($_GET['penerbangan_id']) ? $_GET['penerbangan_id'] : '';
+$asal = isset($_GET['asal']) ? urldecode($_GET['asal']) : '';
+$tujuan = isset($_GET['tujuan']) ? urldecode($_GET['tujuan']) : '';
+$maskapai = isset($_GET['maskapai']) ? urldecode($_GET['maskapai']) : '';
+$jadwal = isset($_GET['jadwal']) ? urldecode($_GET['jadwal']) : '';
+$harga = isset($_GET['harga']) ? urldecode($_GET['harga']) : '';
+?>
+                      ?>
                     </tbody>
                 </table>
                 
