@@ -1,10 +1,11 @@
 <?php
-include (".includes/header.php");
-$title = "Jakarta";
+include (".includes/header.php"); //
+$title = "Jakarta"; // set judul halaman
 include '.includes/toast_notification.php';
 
-// Ambil parameter pencarian
+// Ambil parameter pencarian 'search' dari URL (GET request)
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+// jika parameter ada, (trim) bersihkan dari spasi di awal/akhir, jika tidak ada, set string kosong
 ?>
 
 
@@ -77,6 +78,7 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
                            placeholder="Cari berdasarkan kota tujuan..." 
                            name="search" 
                            value="<?= htmlspecialchars($search) ?>">
+                           <!-- menggunakan htmlspecialchars untuk mencegah XSS (cross-site scripting) dan SQL injection -->
                 </form>
                 
                 <thead>
@@ -99,12 +101,18 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
                     if (!empty($search)) {
                         $sql .= " AND kota_tujuan LIKE '%" . $conn->real_escape_string($search) . "%'";
                     }
+                    // mengambil semua data penerbangan yang di memiliki status_tampil = true
+                    // menambahkan kondisi pencarian jika parameter $search tidak kosong
+                    // mengurutkan hasil berdasarkan kota_tujuan
+                    // menggunakan $conn->real_escape_string() untuk mencegah XSS dan SQL injection
                     $sql .= " ORDER BY kota_tujuan";
                     
                     $query = $conn->query($sql);
                     
                     if ($query->num_rows > 0) {
                         while ($penerbangan = $query->fetch_assoc()) {
+                    // mengecek apakah query mengembalikan hasil (num_rows > 0)
+                    // looping melalui setiap hasil query dan menampilkan nya dalam baris tabel
                     ?>
                     <tr>
                         <td><?= $index++; ?></td>
@@ -113,22 +121,30 @@ $search = isset($_GET['search']) ? trim($_GET['search']) : '';
                         <td><?= htmlspecialchars($penerbangan['maskapai']); ?></td>
                         <td><?= htmlspecialchars($penerbangan['jam_penerbangan']); ?></td>
                         <td><?= htmlspecialchars($penerbangan['harga']); ?></td>
+                        <!-- Menampilkan data dalam format tabel yang lengkap -->
+                        <!-- Menggunakan htmlspecialchars() untuk mencegah XSS -->
+                        <!-- Menampilkan nomor urut dengan variabel $index -->
                         <td>
                             <a href="jakarta_hilang.php?penerbangan_id=<?= $penerbangan['penerbangan_id'] ?>" 
                                class="btn rounded-pill btn-outline-success">Pesan!</a>
+                        <!-- jakarta_hilang.php?penerbangan_id= ini mengarah ke file jakarta_hilang.php atau prosesnya dari button pesan! ini -->
                         </td>
                         <td>
                             <a href="jakarta_edit.php?penerbangan_id=<?= $penerbangan['penerbangan_id'] ?>" 
                                class="btn rounded-pill btn-outline-success">edit</a>
+                               <!-- jakarta_edit.php?penerbangan_id= ini mengarah ke file jakarta_edit.php atau tampilannya dari edit -->
                             <a onclick="return confirm('Anda yakin ingin menghapus data?')" 
-                               href="jakarta_process.php?penerbangan_id=<?= $penerbangan['penerbangan_id'] ?>" 
+                               href="jakarta_process.php?penerbangan_id=<?= $penerbangan['penerbangan_id'] ?>"
                                class="btn rounded-pill btn-outline-success">hapus</a>
+                               <!-- onclick ini misal di klik akan muncul teks dengan isi('Anda yakin ingin menghapus data?') -->
+                               <!-- jakarta_edit.php?penerbangan_id= ini mengarah ke file jakarta_proses.php atau prosesnya dari hapus -->
                         </td>
                     </tr>
                     <?php
                         }
                     } else {
                         echo '<tr><td colspan="8" class="text-center">Tidak ada data ditemukan</td></tr>';
+                        // menampilkan pesan jika tidak ada data
                     }
                     ?>
                 </tbody>

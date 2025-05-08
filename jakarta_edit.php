@@ -5,9 +5,12 @@ include("config.php");
 include(".includes/header.php");
 
 $penerbangan_id = $_GET['penerbangan_id'];
+// Menerima parameter ID penerbangan melalui URL (GET)
+// Mengambil data penerbangan dari database berdasarkan ID
 
+// Menyimpan hasil query ke variabel
     $query = $conn->query("SELECT * FROM penerbangan WHERE penerbangan_id ='$penerbangan_id'");
-    // 1 disini salah karena nama nya nama id nya harusnya $event_id
+    // $penerbang untuk ditampilkan di form
     $penerbang = $query->fetch_assoc();
 
 ?>
@@ -18,8 +21,13 @@ $penerbangan_id = $_GET['penerbangan_id'];
       <h5 class="card-header">Tambah Penerbangan</h5>
       <div class="card-body demo-vertical-spacing demo-only-element">
 
+<!-- Membuat form untuk mengedit data penerbangan -->
 <form method="POST" action="jakarta_process.php" class="mb-4">
 <input type="hidden" name="penerbangan_id" value="<?php echo $penerbang['penerbangan_id']; ?>">
+<!-- Data akan dikirim via POST ke jakarta_process.php untuk diproses -->
+<!-- value= echo $penerbang['penerbangan']; menampilkan nilai yang sudah ada -->
+<!-- required membuat field wajib diisi -->
+
 <table>
 <div class="mb-4">
   <!-- Kota Asal -->
@@ -38,6 +46,8 @@ $penerbangan_id = $_GET['penerbangan_id'];
         aria-label="Kota asal"
         aria-describedby="asalHelp"
         value="<?php echo $penerbang['kota_asal']; ?>" required>
+        <!-- value= echo $penerbang['kota_asal']; menampilkan nilai yang sudah ada -->
+        <!-- required membuat field wajib diisi -->
        >
         </div>
         <small id="asalHelp" class="form-text text-muted mt-2">
@@ -66,6 +76,8 @@ $penerbangan_id = $_GET['penerbangan_id'];
                 aria-describedby="tujuanHelp"
                 value="<?php echo $penerbang['kota_tujuan']; ?>" required>
             >
+            <!-- value= echo $penerbang['kota_tujuan']; menampilkan nilai yang sudah ada -->
+            <!-- required membuat field wajib diisi -->
         </div>
         <small id="tujuanHelp" class="form-text text-muted mt-2">
             <i class="bi bi-info-circle me-1"></i>
@@ -94,6 +106,7 @@ $penerbangan_id = $_GET['penerbangan_id'];
               <option value="Wings Air">Wings Air</option>
             </select>
           </div>
+          <!-- ini untuk memilih maskapai yang di inginkan user -->
 
 <div class="mb-4">
     <label for="jadwal" class="form-label fw-semibold mb-2">
@@ -131,7 +144,10 @@ $penerbangan_id = $_GET['penerbangan_id'];
             name="harga"
             required
             aria-describedby="hargaHelp"
+            value="<?php echo $penerbang['harga']; ?>" required>
         >
+        <!-- value= echo $penerbang['harga']; menampilkan nilai yang sudah ada -->
+        <!-- required membuat field wajib diisi -->
         
     </div>
     <small id="harga" class="form-text text-muted mt-2">
@@ -146,10 +162,12 @@ $penerbangan_id = $_GET['penerbangan_id'];
         <i class="bi bi-arrow-left me-2"></i>
         Kembali
     </a>
+    <!-- tombol kembali -->
     <button type="submit" class="btn btn-primary btn-lg" name="sumbit_update">
         <i class="bi bi-send-check me-2"></i>
         Update Penerbangan
     </button>
+    <!-- tombol buat klik untuk mengarahkan ke jekarta_process.php -->
 </div>
       </div>
     </div>
