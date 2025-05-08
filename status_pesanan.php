@@ -26,10 +26,14 @@ include '.includes/toast_notification.php';
                       <tbody class="table-border-bottom-0">
                       <?php 
                         $index = 1;
+                        // untuk menampilkan nomor urut otomatis di kolom pertama tabel
 
                         $query = $conn->query("SELECT * FROM pembayaran");
+                        // Mengambil semua data dari tabel 'pembayaran'
                         while ($bayar = $query->fetch_assoc()) {
+                        // Looping melalui setiap record menggunakan fetch_assoc()
                         ?>
+                        <!-- Menyimpan setiap baris data dalam variabel $bayar -->
                         <tr>
                           <td><?= $index++; ?></td>
                           <td><?= $bayar['nama']; ?></td>
