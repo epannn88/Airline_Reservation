@@ -1,6 +1,6 @@
 <?php
 include (".includes/header.php");
-$title = "Dashboard";
+$title = "Detail pesanan";
 // menyertakan file untuk menampilakn notifikasi (jika ada) 
 include '.includes/toast_notification.php';
 ?>
@@ -12,7 +12,7 @@ include '.includes/toast_notification.php';
  <div class="card mx-4 mt-4">
                 <div class="card-header">
                   <div class="table-responsive text-nowrap">
-                    <table id="testdatatable" class="table table-hover">
+                    <table id="penerbangan" class="table table-hover">
                       <thead>
                         <tr>
                           <th>No</th>
@@ -26,17 +26,21 @@ include '.includes/toast_notification.php';
                       <tbody class="table-border-bottom-0">
                       <?php 
                         $index = 1;
+                        // untuk menampilkan nomor urut otomatis di kolom pertama tabel
 
                         $query = $conn->query("SELECT * FROM penumpang");
-                        while ($penerbangan = $query->fetch_assoc()) {
+                        // Mengambil semua data dari tabel 'penumpang'
+                        while ($penumpang = $query->fetch_assoc()) {
+                        // Looping melalui setiap record menggunakan fetch_assoc()
                         ?>
+                        <!-- Menyimpan setiap baris data dalam variabel $penumpang -->
                         <tr>
                           <td><?= $index++; ?></td>
-                          <td><?= $penerbangan['cabin_class']; ?></td>
-                          <td><?= $penerbangan['nama_penumpang']; ?></td>
-                          <td><?= $penerbangan['umur_penumpang']; ?></td>
-                          <td><?= $penerbangan['email_penumpang']; ?></td>
-                          <td><?= $penerbangan['nomor_kursi']; ?></td>
+                          <td><?= $penumpang['cabin_class']; ?></td>
+                          <td><?= $penumpang['nama_penumpang']; ?></td>
+                          <td><?= $penumpang['umur_penumpang']; ?></td>
+                          <td><?= $penumpang['email_penumpang']; ?></td>
+                          <td><?= $penumpang['nomor_kursi']; ?></td>
                         <?php
                         }
                         ?>
